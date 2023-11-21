@@ -1,3 +1,4 @@
+vim.cmd[[syntax off]]
 require('nvim-treesitter.configs').setup{
   ensure_installed = {'javascript', 'typescript', 'lua', 'css', 'html', 'bash', 'sql', 'json' },
   sync_install = false,
@@ -6,3 +7,4 @@ require('nvim-treesitter.configs').setup{
     enabled = true
   }
 }
+vim.cmd[[TSToggle highlight]]
