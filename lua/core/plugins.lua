@@ -14,7 +14,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
   {
     "nvim-tree/nvim-tree.lua",
     version = "*",
@@ -22,15 +21,6 @@ local plugins = {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-  },
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end,
-    opts = {}
   },
   'nvim-lualine/lualine.nvim',
   {
@@ -52,9 +42,24 @@ local plugins = {
 
   },
   'saadparwaiz1/cmp_luasnip',
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  'Mofiqul/dracula.nvim'
-
+  'cohama/lexima.vim',
+  'hrsh7th/cmp-buffer',
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  'lewis6991/gitsigns.nvim',
+  {
+    "kdheepak/lazygit.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+  },
+  "rebelot/kanagawa.nvim",
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+      -- add any options here
+    },
+    lazy = false,
+  }
 }
 local opts = {}
 
