@@ -14,3 +14,4 @@ vim.opt.smartcase = true
 
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 vim.keymap.set('n', '<leader>gg', ':LazyGit<CR>')
+vim.keymap.set('v', '<leader>cp', '"+y')
