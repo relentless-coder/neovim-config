@@ -1,29 +1,20 @@
+local servers = {'lua_ls', 'tsserver', 'sqlls', 'cssls', 'bashls', 'eslint', 'gopls', 'clangd'}
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('mason').setup()
 require('mason-lspconfig').setup({
-  ensure_installed = {'lua_ls', 'tsserver', 'sqls', 'cssls', 'bashls', 'eslint', 'gopls', 'clangd'}
+  ensure_installed = servers
 })
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-require('lspconfig').lua_ls.setup {
-  capabilities = capabilities
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
 }
 
-require('lspconfig').tsserver.setup {
-  capabilities = capabilities
-}
-
-require('lspconfig').eslint.setup {
-  capabilities = capabilities
-}
-
-require('lspconfig').gopls.setup {
-  capabilities = capabilities
-}
-
-require('lspconfig').clangd.setup {
-  capabilities = capabilities
-}
+for _, ls in pairs(servers) do
+  require('lspconfig')[ls].setup{
+    capabilities = capabilities
+  }
+end
 
 vim.keymap.set('n', 'ge', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -48,5 +39,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
     vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts)
+    vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, opts)
   end,
 })
