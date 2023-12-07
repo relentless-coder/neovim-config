@@ -59,7 +59,8 @@ local plugins = {
       -- add any options here
     },
     lazy = false,
-  }
+  },
+  {'kevinhwang91/nvim-ufo', dependencies = {'kevinhwang91/promise-async'}}
 }
 local opts = {}
 
