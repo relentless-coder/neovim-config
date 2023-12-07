@@ -13,8 +13,19 @@ require('lualine').setup {
         path = 1
       }
     },
-    lualine_c = {'branch'},
-    lualine_x = {'b:gitsigns_blame_line'},
+    lualine_c = {
+      {
+        'diagnostics',
+        sources = {'nvim_lsp'},
+        sections = {'error', 'warn'},
+        symbols = {
+          error = '!',
+          warn = '/'
+        }
+      }
+    },
+    lualine_x = {'branch'},
+    lualine_y = {'b:gitsigns_blame_line'},
     lualine_z = {'location'}
   }
 }
