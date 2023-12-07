@@ -11,7 +11,7 @@ require('gitsigns').setup {
     delay = 100,
     virt_text = false
   },
-  current_line_blame_formatter = '<author>, <author_time:%d/%m/%Y>',
+  current_line_blame_formatter = '<author>, <author_time:%d/%m/%Y@%T>',
   on_attach = function (bufnr)
      local gs = package.loaded.gitsigns
      local function map(mode, l, r, opts)
