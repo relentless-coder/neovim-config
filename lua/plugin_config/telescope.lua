@@ -10,12 +10,15 @@ require('telescope').setup{
     layout_strategy = 'horizontal',
     layout_config = {
       prompt_position = 'top'
-    }
+    },
+    path_display = {truncate = 10}
   },
   pickers = {
     find_files = {
-      hidden = true
+      hidden = true,
+    },
+    lsp_references = {
+      fname_width = 100,
     }
   }
 }
-
