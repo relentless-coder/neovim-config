@@ -60,7 +60,7 @@ local plugins = {
     },
     lazy = false,
   },
-  {'kevinhwang91/nvim-ufo', dependencies = {'kevinhwang91/promise-async'}}
+  {'kevinhwang91/nvim-ufo', dependencies = {'kevinhwang91/promise-async'}},
 }
 local opts = {}
 
